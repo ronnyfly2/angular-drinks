@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/font-awesome/scss/font-awesome.scss",
               "src/styles.sass"
             ],
             "scripts": []
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "drink-angular"
+    }
+  },
+  "defaultProject": "drink-angular",
+  "cli": {
+    "analytics": "579f260b-cd38-4cad-93bc-a93f8fe07190"
+  }
 }
