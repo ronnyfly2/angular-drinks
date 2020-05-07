@@ -6,7 +6,7 @@ import { LoaderService } from "../../services/loader.service";
   styleUrls: ['./loader.component.sass']
 })
 export class LoaderComponent implements OnInit {
-	isShow = false;
+	public isShow:boolean;
   constructor(private _loaderService:LoaderService) { }
 
   ngOnInit(): void {

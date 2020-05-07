@@ -4,10 +4,12 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
   providedIn: 'root'
 })
 export class LoaderService {
-	showLoader = false;
-
+	public showLoader: boolean;
 	@Output() changeLoader: EventEmitter<boolean> = new EventEmitter();
 	constructor() { }
+	ngOnInit(): void {
+    this.showLoader = false;
+  }
 	toogleLoader(){
     this.showLoader = !this.showLoader;
 

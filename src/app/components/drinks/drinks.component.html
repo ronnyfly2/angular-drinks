@@ -1,12 +1,15 @@
 <div class="container-xl">
-	<app-search></app-search>
-	<div class="row">
+	<app-search class="row" [ngClass]="{ 'align-items-center show_list_height': !showListDrinks }"></app-search>
+	<div class="row" *ngIf="showListDrinks">
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3" *ngFor="let drink of drinks">
 			<mat-card>
 				<img mat-card-image src="{{drink.strDrinkThumb}}" alt="Photo of a Shiba Inu">
 				<mat-card-content>
 					<mat-card-title>{{ drink.strDrink }}</mat-card-title>
 					<mat-card-subtitle>{{ drink.strCategory }}</mat-card-subtitle>
+					<mat-card-subtitle>{{ drink.strIngredient1 }}</mat-card-subtitle>
+					<mat-card-subtitle>{{ drink.strIngredient2 }}</mat-card-subtitle>
+					<mat-card-subtitle>{{ drink.strGlass }}</mat-card-subtitle>
 					<p>
 						{{ drink.strAlcoholic }}
 					</p>

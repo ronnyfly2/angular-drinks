@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DrinksService } from 'src/app/services/drinks.service';
 import { Drinks } from 'src/app/shared/models/drinks-models';
 
 @Component({
@@ -9,9 +8,11 @@ import { Drinks } from 'src/app/shared/models/drinks-models';
 })
 export class DrinksComponent implements OnInit {
 	public drinks: Drinks[];
-  constructor(private service: DrinksService) { }
+	public showListDrinks: boolean;
+  constructor() { }
 
   ngOnInit(): void {
+		this.showListDrinks = false;
   }
 
 }

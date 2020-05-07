@@ -8,7 +8,11 @@ import { SearchComponent } from './components/search/search.component';
 import { DrinkComponent } from './components/drink/drink.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -36,7 +40,11 @@ const appRoutes : Routes = [
 		HttpClientModule,
 		RouterModule.forRoot(appRoutes),
 		BrowserAnimationsModule,
-		MatCardModule
+		MatCardModule,
+		MatSelectModule,
+		MatButtonToggleModule,
+		MatInputModule,
+		MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

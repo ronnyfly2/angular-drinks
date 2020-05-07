@@ -13,4 +13,7 @@ export class DrinksService {
 	getSearchDrinks(value: string){
 		return this.http.get( `${API}search.php?s=${value}` )
 	}
+	getSearchFiltersTypes(paramType: string){
+		return this.http.get( `${API}list.php?${paramType}=list` )
+	}
 }
