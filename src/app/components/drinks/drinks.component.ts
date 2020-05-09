@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
 import { Drinks } from 'src/app/shared/models/drinks-models';
 
 @Component({
@@ -12,7 +13,6 @@ export class DrinksComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-		this.showListDrinks = false;
   }
 
 }

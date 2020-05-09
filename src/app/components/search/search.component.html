@@ -4,9 +4,9 @@
 			<mat-button-toggle-group>
 				<mat-form-field class="example-full-width">
 					<mat-label>Busca tu trago favorito</mat-label>
-					<input matInput placeholder="Ex. Pizza" [formControl]="drinkSearch" placeholder="Escribe el nombre de tu trago favorito">
+					<input matInput placeholder="Ex. Pizza" [formControl]="drinkSearch" value="drinkSearch.value" (keyup.enter)="getSearhDrink('')" placeholder="Escribe el nombre de tu trago favorito">
 				</mat-form-field>
-				<mat-button-toggle mat-button class="search_button" (click)="getSearhDrink()">Buscar trago</mat-button-toggle>
+				<mat-button-toggle mat-button class="search_button" (click)="getSearhDrink('')">Buscar trago</mat-button-toggle>
 			</mat-button-toggle-group>
 		</div>
 	</div>

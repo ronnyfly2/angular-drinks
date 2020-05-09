@@ -15,13 +15,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 const appRoutes : Routes = [
 	{ path: '', component: DrinksComponent },
+	{ path: ':search', component: DrinksComponent },
 	{ path: 'drink/:id', component: DrinkComponent },
 ]
 @NgModule({
@@ -38,6 +39,7 @@ const appRoutes : Routes = [
 		AppRoutingModule,
 		ReactiveFormsModule,
 		HttpClientModule,
+		HttpClientJsonpModule,
 		RouterModule.forRoot(appRoutes),
 		BrowserAnimationsModule,
 		MatCardModule,

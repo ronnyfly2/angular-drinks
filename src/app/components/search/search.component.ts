@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DrinksComponent } from '../drinks/drinks.component';
 import { LoaderService } from 'src/app/services/loader.service';
 import { DrinksService } from 'src/app/services/drinks.service';
@@ -22,10 +23,18 @@ export class SearchComponent implements OnInit {
   constructor(
 		private _loaderService:LoaderService,
 		private service: DrinksService,
-		private drinks: DrinksComponent
+		private drinks: DrinksComponent,
+		private actiRoute: ActivatedRoute,
+		private router: Router
 		) { }
 
   ngOnInit(): void {
+		this.actiRoute.params.subscribe(res=>{
+			console.log(res['search'])
+			if(res['search']){
+				this.getSearhDrink(res['search']);
+			}
+		})
 		setTimeout(() => {
 			this.typeString = '';
 			this.shoFilter = false
@@ -33,7 +42,10 @@ export class SearchComponent implements OnInit {
 	}
 	getFilter(paramForFilter:string){
 		let arrayNew = this.copyDrinks.filter((drinks:any, idx)=>{
-			let regex =  new RegExp(paramForFilter, 'g')
+			console.log('date1', paramForFilter )
+			console.log('date2', drinks.strGlass )
+			console.log('date3',paramForFilter.trim() )
+			let regex =  new RegExp(paramForFilter, 'gi')
 			return drinks.strAlcoholic.match(regex) || drinks.strCategory.match(regex) || drinks.strGlass.match(regex) ||  drinks.strIngredient1.match(regex)
 		})
 		this.drinks.drinks = arrayNew;
@@ -63,14 +75,15 @@ export class SearchComponent implements OnInit {
 			this.typeList = array;
 		});
 	}
-	getSearhDrink(){
-		let valDrink= this.drinkSearch.value;
+	getSearhDrink(param:string){
+		let valDrink= param?param:this.drinkSearch.value;
 		/*if(valDrink == '' || valDrink.length > 2){
 			this.isErrorValue= true;
 			this.msgErrorDrink= (valDrink == '')? "El valor es requerido" : "El valor es inválido";
 		}else{
 			this.isErrorValue= false;
 		}*/
+		this.getNAvigate(this.drinkSearch.value);
 		this._loaderService.toogleLoader();
 		this.service.getSearchDrinks(valDrink).subscribe((result: any) => {
 			this._loaderService.toogleLoader();
@@ -79,6 +92,16 @@ export class SearchComponent implements OnInit {
 			this.drinks.showListDrinks = true;
 			this.shoFilter = true;
 		});
+		//this.getNAvigate(this.drinkSearch.value);
+
+	}
+	getNAvigate(val:any){
+		let item = val
+		console.log('ddddd',val)
+		if(item && item !== ''){
+			this.router.navigate( ['/',item] )
+		}
+
 	}
 
 }

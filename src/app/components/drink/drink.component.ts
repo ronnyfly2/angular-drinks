@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-drink',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrinkComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+		private actRoute: ActivatedRoute
+	) { }
 
   ngOnInit(): void {
   }
